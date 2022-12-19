@@ -18,10 +18,11 @@ public class Book {
     @Column(name = "isbn", nullable = false, unique = true)
     private String isbn;
     @ManyToOne
-    private Author author;
-    private String name;
+    private Author bookAuthor;
+    private String bookTitle;
+    private String yearPublished;
     @CreatedDate
     @Column(name="createdDate", nullable = false)
     private Instant createdDate = Instant.now();
-    private Long quantity;
+    private Long availableQuantity;
 }

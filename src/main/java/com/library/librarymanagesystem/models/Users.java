@@ -1,10 +1,12 @@
 package com.library.librarymanagesystem.models;
 
 import jakarta.persistence.*;
+import lombok.experimental.SuperBuilder;
 
 import java.util.*;
 
 @Entity
+@SuperBuilder
 @Table(name = "baseUser")
 public class Users extends Details{
     @Id

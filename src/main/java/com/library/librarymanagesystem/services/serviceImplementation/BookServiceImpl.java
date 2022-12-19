@@ -4,7 +4,9 @@ import com.library.librarymanagesystem.dtos.request.BookAuthorRequest;
 import com.library.librarymanagesystem.dtos.request.BookCreateRequest;
 import com.library.librarymanagesystem.dtos.request.UpdateBookRequest;
 import com.library.librarymanagesystem.dtos.response.*;
-import com.library.librarymanagesystem.models.Book;
+import com.library.librarymanagesystem.exception.AuthorException;
+import com.library.librarymanagesystem.models.*;
+import com.library.librarymanagesystem.repository.AuthorRepository;
 import com.library.librarymanagesystem.repository.BookRepository;
 import com.library.librarymanagesystem.services.serviceInterface.BookService;
 import org.modelmapper.ModelMapper;
@@ -20,16 +22,21 @@ public class BookServiceImpl implements BookService {
 
     @Autowired
     private ModelMapper mapper;
-
-    private Long count;
-
+    @Autowired
+    private AuthorRepository authorRepository;
 
     @Override
     public BookCreateResponse createNewBook(BookCreateRequest bookCreateRequest) {
-        Book book = new Book();
-        book.setBookId(++count);
-//        book.setAuthor(bookCreateRequest.);
-        return null;
+        Author bookAuthor = authorRepository.findById(bookCreateRequest.getAuthorId()).orElseThrow(() -> new AuthorException("Author does not exist"));
+        Book book = Book.builder()
+                .isbn(bookCreateRequest.getIsbn())
+                .bookTitle(bookCreateRequest.getBookTitle())
+                .yearPublished(bookCreateRequest.getYearPublished())
+                .bookAuthor(bookAuthor)
+                .availableQuantity(0L)
+                .build();
+        Book savedBook = bookRepository.save(book);
+        return mapper.map(savedBook, BookCreateResponse.class);
     }
 
     @Override
