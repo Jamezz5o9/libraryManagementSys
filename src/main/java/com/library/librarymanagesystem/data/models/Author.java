@@ -18,12 +18,12 @@ import java.util.List;
 public class Author extends Details{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "BorrowedId", nullable = false)
+    @Column(nullable = false)
     private Long id;
     @OneToMany(cascade = CascadeType.ALL)
     private List<Book> books = new ArrayList<>();
     @CreatedDate
-    @Column(name="created_time", nullable = false)
+    @Column(name="created_date", nullable = false)
     private Instant createdDate = Instant.now();
     @LastModifiedDate
     @Column(name="modified_date")

@@ -39,7 +39,6 @@ class AuthorServiceImplTest {
     @Test
     void authorCanBeCreated_test(){
         AuthorCreateResponse authorCreateResponse = authorService.createAuthor(authorCreateRequest);
-        System.out.println(authorCreateResponse.getId());
         assertEquals("adulojujames@gmail.com", authorCreateResponse.getEmail());
     }
 }

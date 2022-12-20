@@ -34,7 +34,6 @@ public class BookServiceImpl implements BookService {
                 .isbn(bookCreateRequest.getIsbn())
                 .bookTitle(bookCreateRequest.getBookTitle())
                 .yearPublished(bookCreateRequest.getYearPublished())
-                .bookAuthor(bookAuthor)
                 .availableQuantity(0L)
                 .build();
         Book savedBook = bookRepository.save(book);

@@ -7,8 +7,8 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class AuthorCreateResponse {
-    private String email;
-    private String lastName;
+public class LoginResponse {
+    private final String message = "Login successful";
     private String firstName;
+    private String lastName;
 }

@@ -5,6 +5,8 @@ import lombok.*;
 import org.springframework.data.annotation.CreatedDate;
 
 import java.time.Instant;
+import java.util.ArrayList;
+import java.util.List;
 
 @NoArgsConstructor
 @AllArgsConstructor
@@ -17,8 +19,8 @@ public class Book {
     private Long bookId;
     @Column(name = "isbn", nullable = false, unique = true)
     private String isbn;
-    @ManyToOne
-    private Author bookAuthor;
+    @ManyToMany
+    private List<Author> bookAuthor = new ArrayList<>();
     private String bookTitle;
     private String yearPublished;
     @CreatedDate
