@@ -1,8 +1,6 @@
-package com.library.librarymanagesystem.models;
+package com.library.librarymanagesystem.data.models;
 
 import jakarta.persistence.*;
-import lombok.*;
-import lombok.EqualsAndHashCode;
 import lombok.experimental.SuperBuilder;
 
 @Entity

@@ -1,6 +1,6 @@
-package com.library.librarymanagesystem.repository;
+package com.library.librarymanagesystem.data.repository;
 
-import com.library.librarymanagesystem.models.Address;
+import com.library.librarymanagesystem.data.models.Address;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

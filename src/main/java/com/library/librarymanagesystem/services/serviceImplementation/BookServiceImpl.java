@@ -1,13 +1,15 @@
 package com.library.librarymanagesystem.services.serviceImplementation;
 
+import com.library.librarymanagesystem.data.models.Author;
+import com.library.librarymanagesystem.data.models.Book;
 import com.library.librarymanagesystem.dtos.request.BookAuthorRequest;
 import com.library.librarymanagesystem.dtos.request.BookCreateRequest;
 import com.library.librarymanagesystem.dtos.request.UpdateBookRequest;
 import com.library.librarymanagesystem.dtos.response.*;
 import com.library.librarymanagesystem.exception.AuthorException;
-import com.library.librarymanagesystem.models.*;
-import com.library.librarymanagesystem.repository.AuthorRepository;
-import com.library.librarymanagesystem.repository.BookRepository;
+import com.library.librarymanagesystem.data.models.*;
+import com.library.librarymanagesystem.data.repository.AuthorRepository;
+import com.library.librarymanagesystem.data.repository.BookRepository;
 import com.library.librarymanagesystem.services.serviceInterface.BookService;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;

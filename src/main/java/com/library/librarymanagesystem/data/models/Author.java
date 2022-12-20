@@ -1,9 +1,9 @@
-package com.library.librarymanagesystem.models;
+package com.library.librarymanagesystem.data.models;
 
+import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import jakarta.persistence.*;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
-import net.bytebuddy.dynamic.loading.InjectionClassLoader;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
 
@@ -12,9 +12,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-@SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
+@SuperBuilder
 public class Author extends Details{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

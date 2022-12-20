@@ -2,9 +2,7 @@ package com.library.librarymanagesystem.services.serviceImplementation;
 
 import com.library.librarymanagesystem.dtos.request.BookCreateRequest;
 import com.library.librarymanagesystem.dtos.response.BookCreateResponse;
-import com.library.librarymanagesystem.dtos.response.BookResponse;
-import com.library.librarymanagesystem.models.Book;
-import com.library.librarymanagesystem.repository.BookRepository;
+import com.library.librarymanagesystem.data.repository.BookRepository;
 import com.library.librarymanagesystem.services.serviceInterface.BookService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

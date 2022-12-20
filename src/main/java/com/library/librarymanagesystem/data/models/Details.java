@@ -1,12 +1,10 @@
-package com.library.librarymanagesystem.models;
+package com.library.librarymanagesystem.data.models;
 
 import jakarta.persistence.*;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
 
-@Getter
-@Setter
-@ToString
+@Data
 @NoArgsConstructor
 @AllArgsConstructor
 @SuperBuilder

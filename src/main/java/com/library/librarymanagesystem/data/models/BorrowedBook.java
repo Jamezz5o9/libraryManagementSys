@@ -1,4 +1,4 @@
-package com.library.librarymanagesystem.models;
+package com.library.librarymanagesystem.data.models;
 
 import com.library.librarymanagesystem.enums.BorrowedBookStatus;
 import jakarta.persistence.*;

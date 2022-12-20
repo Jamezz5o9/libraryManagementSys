@@ -1,7 +1,6 @@
 package com.library.librarymanagesystem.services.serviceInterface;
 import com.library.librarymanagesystem.dtos.request.*;
 import com.library.librarymanagesystem.dtos.response.*;
-import com.library.librarymanagesystem.models.Book;
 
 import java.util.List;
 

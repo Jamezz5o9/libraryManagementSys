@@ -1,4 +1,4 @@
-package com.library.librarymanagesystem.models;
+package com.library.librarymanagesystem.data.models;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -8,7 +8,6 @@ import lombok.NoArgsConstructor;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
 
-import java.awt.print.Book;
 import java.time.Instant;
 @NoArgsConstructor
 @AllArgsConstructor
