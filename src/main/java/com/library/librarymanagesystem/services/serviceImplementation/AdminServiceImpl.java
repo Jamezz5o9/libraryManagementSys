@@ -13,7 +13,9 @@ import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
 
 @Service
 public class AdminServiceImpl implements AdminService {
@@ -52,6 +54,18 @@ public class AdminServiceImpl implements AdminService {
         else{
             return mapper.map(foundAdmin, LoginResponse.class);
         }
+    }
+
+    @Override
+    public List<Admin> viewAll() {
+        return adminRepository.findAll();
+    }
+
+    @Override
+    public String deleteAdminByEmail(String email){
+        Admin admin = viewAdminByEmail(email);
+        adminRepository.delete(admin);
+        return "Email deleted succesfully";
     }
 
     @Override

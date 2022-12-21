@@ -33,18 +33,18 @@
 //                .apis(RequestHandlerSelectors.basePackage("com.library.librarymanagesystem"))
 //                .build()
 //                .apiInfo(apiDetails())
-//                .securitySchemes(List.of(apikey()));
+//                .securitySchemes(Arrays.asList(apikey()));
 //    }
 //
 //    private ApiInfo apiDetails(){
 //        return new ApiInfo(
-//                "LMS Api",
-//                "LMS Api",
+//                "LMS System",
+//                "LMS System",
 //                "1.0",
-//                "LMS task",
-//                new springfox.documentation.service.Contact("LMS",
+//                "LLMS Systet task ",
+//                new springfox.documentation.service.Contact("LMS System",
 //                        "#",
-//                        "sinebi.innazo@gmail.com"),
+//                        "sinnazo@gmail.com"),
 //                "Api License",
 //                "#",
 //                Collections.emptyList()

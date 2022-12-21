@@ -1,6 +1,7 @@
 package com.library.librarymanagesystem.controller;
 
 import com.library.librarymanagesystem.data.models.Admin;
+import java.util.*;
 import com.library.librarymanagesystem.data.repository.AdminRepository;
 import com.library.librarymanagesystem.dtos.request.AdminCreateRequest;
 import com.library.librarymanagesystem.dtos.request.LoginRequest;
@@ -40,6 +41,16 @@ public class AdminController {
     public ResponseEntity<LoginResponse> login(@RequestBody LoginRequest loginRequest){
         return new ResponseEntity<>(adminService.adminLogin(loginRequest), HttpStatus.OK);
 
+    }
+
+    @GetMapping("/adminList")
+    public ResponseEntity<List<Admin>> adminList(){
+        return new ResponseEntity<>(adminService.viewAll(), HttpStatus.OK);
+    }
+
+    @GetMapping("/deleteByEmail/{email}")
+    public ResponseEntity<String> deleteAdminByEmail(@PathVariable String email){
+        return new ResponseEntity<>(adminService.deleteAdminByEmail(email), HttpStatus.OK);
     }
 
 }

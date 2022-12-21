@@ -10,4 +10,5 @@ public interface AdminRepository extends JpaRepository<Admin, Long> {
     @Override
     Optional<Admin> findById(Long id);
     Optional<Admin> findAdminByEmail(String email);
+    String deleteAdminByEmail(String email);
 }
