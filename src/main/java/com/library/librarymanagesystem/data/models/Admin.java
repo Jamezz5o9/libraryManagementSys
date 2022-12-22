@@ -1,18 +1,21 @@
 package com.library.librarymanagesystem.data.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.experimental.SuperBuilder;
 @Data
-@Entity
-@SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-public class Admin extends Details{
+@Entity
+@SuperBuilder
+public class Admin extends Details {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "adminId", nullable = false)
-    private Long adminId;
+    @JsonIgnore
+    private Long id;
+    @JsonIgnore
+    private String password;
 }

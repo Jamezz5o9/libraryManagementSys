@@ -1,4 +1,5 @@
 package com.library.librarymanagesystem.services.serviceInterface;
+import com.library.librarymanagesystem.data.models.Book;
 import com.library.librarymanagesystem.dtos.request.*;
 import com.library.librarymanagesystem.dtos.response.*;
 
@@ -6,11 +7,11 @@ import java.util.List;
 
 public interface BookService {
 
-    BookCreateResponse createNewBook(BookCreateRequest bookCreateRequest);
+    BookCreateResponse saveBook(BookCreateRequest bookCreateRequest);
     DeletedBookResponse deleteBookById(Long id);
-    BookAuthorResponse findBookByAuthor(BookAuthorRequest bookAuthorRequestRequest);
+    List<Book> getBookByAuthor(BookAuthorRequest bookAuthorRequestRequest);
     String deleteAll();
-    BookResponse viewBook(Long id);
-    List<BookResponse> bookList();
-    UpdateBookResponse updateBookQuantity(UpdateBookRequest updateBookRequest);
+    BookResponse getBookById(Long id);
+    BookResponse getBookByName(String name);
+    List<Book> getAllBooks();
 }

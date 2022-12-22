@@ -4,10 +4,8 @@ import com.library.librarymanagesystem.data.models.Author;
 import com.library.librarymanagesystem.data.models.Book;
 import com.library.librarymanagesystem.dtos.request.BookAuthorRequest;
 import com.library.librarymanagesystem.dtos.request.BookCreateRequest;
-import com.library.librarymanagesystem.dtos.request.UpdateBookRequest;
 import com.library.librarymanagesystem.dtos.response.*;
 import com.library.librarymanagesystem.exception.AuthorException;
-import com.library.librarymanagesystem.data.models.*;
 import com.library.librarymanagesystem.data.repository.AuthorRepository;
 import com.library.librarymanagesystem.data.repository.BookRepository;
 import com.library.librarymanagesystem.services.serviceInterface.BookService;
@@ -28,7 +26,7 @@ public class BookServiceImpl implements BookService {
     private AuthorRepository authorRepository;
 
     @Override
-    public BookCreateResponse createNewBook(BookCreateRequest bookCreateRequest) {
+    public BookCreateResponse saveBook(BookCreateRequest bookCreateRequest) {
         Author bookAuthor = authorRepository.findById(bookCreateRequest.getAuthorId()).orElseThrow(() -> new AuthorException("Author does not exist"));
         Book book = Book.builder()
                 .isbn(bookCreateRequest.getIsbn())
@@ -45,9 +43,8 @@ public class BookServiceImpl implements BookService {
         return null;
 
     }
-
     @Override
-    public BookAuthorResponse findBookByAuthor(BookAuthorRequest authorRequest) {
+    public List<Book> getBookByAuthor(BookAuthorRequest authorRequest) {
         return null;
     }
 
@@ -57,17 +54,19 @@ public class BookServiceImpl implements BookService {
     }
 
     @Override
-    public BookResponse viewBook(Long id) {
+    public BookResponse getBookById(Long id) {
+        return null;
+
+    }
+
+    @Override
+    public BookResponse getBookByName(String name) {
         return null;
     }
 
     @Override
-    public List<BookResponse> bookList() {
+    public List<Book> getAllBooks() {
         return null;
     }
 
-    @Override
-    public UpdateBookResponse updateBookQuantity(UpdateBookRequest updateBookRequest) {
-        return null;
-    }
 }

@@ -1,5 +1,6 @@
 package com.library.librarymanagesystem.data.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import jakarta.persistence.*;
 import lombok.*;
@@ -11,14 +12,14 @@ import java.time.Instant;
 import java.util.ArrayList;
 import java.util.List;
 
-@Entity
+@Data
 @NoArgsConstructor
 @AllArgsConstructor
+@Entity
 @SuperBuilder
 public class Author extends Details{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(nullable = false)
     private Long id;
     @OneToMany(cascade = CascadeType.ALL)
     private List<Book> books = new ArrayList<>();

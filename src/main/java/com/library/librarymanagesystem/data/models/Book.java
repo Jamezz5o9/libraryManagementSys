@@ -17,14 +17,12 @@ public class Book {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long bookId;
-    @Column(name = "isbn", nullable = false, unique = true)
-    private String isbn;
+    private Long isbn;
     @ManyToMany
     private List<Author> bookAuthor = new ArrayList<>();
     private String bookTitle;
-    private String yearPublished;
     @CreatedDate
-    @Column(name="createdDate", nullable = false)
     private Instant createdDate = Instant.now();
+    private String yearPublished;
     private Long availableQuantity;
 }

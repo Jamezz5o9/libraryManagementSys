@@ -4,7 +4,8 @@ import lombok.Data;
 
 @Data
 public class BookCreateRequest {
-    private String isbn;
+    private Long isbn;
+
     private String yearPublished;
     private String bookTitle;
     private Long authorId;
