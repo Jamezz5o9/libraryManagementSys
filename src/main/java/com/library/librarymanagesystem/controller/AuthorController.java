@@ -9,6 +9,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/author")
 public class AuthorController {
@@ -23,6 +25,10 @@ public class AuthorController {
         return new ResponseEntity<>(authorService.deleteAuthorByEmail(email), HttpStatus.OK);
     }
 
+    @GetMapping("/getAllAuthors")
+    public ResponseEntity<List<Author>> getAllAuthors(){
+        return new ResponseEntity<>(authorService.getAllAuthor(), HttpStatus.OK);
+    }
     @GetMapping("/deleteAll")
     public ResponseEntity<String> deleteAllAuthor(){
         return new ResponseEntity<>(authorService.deleteAllAuthor(), HttpStatus.OK);

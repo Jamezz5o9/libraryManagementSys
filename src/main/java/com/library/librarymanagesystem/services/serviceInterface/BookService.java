@@ -12,7 +12,7 @@ public interface BookService {
     List<Book> viewBookByAuthor(BookAuthorRequest bookAuthorRequestRequest);
     String deleteAllBooks();
     Book viewBookById(Long id);
-    Book viewBookByName(String name);
+    Book viewBookByTitle(String name);
     List<Book> viewAllBooks();
     String deleteBookByIsbn(Long isbn);
     Book viewBookByIsbn(Long isbn);

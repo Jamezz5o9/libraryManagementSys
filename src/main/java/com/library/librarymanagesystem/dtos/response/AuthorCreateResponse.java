@@ -10,6 +10,6 @@ public class AuthorCreateResponse {
     private String email;
     @JsonIgnore
     private Long id;
-    private String message = "Author created succesfully";
+    private String message = "Author created successfully";
 
 }

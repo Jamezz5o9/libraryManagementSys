@@ -20,7 +20,7 @@ public class Book {
     private Long isbn;
     @ManyToMany
     private List<Author> bookAuthor = new ArrayList<>();
-    private String bookTitle;
+    private String title;
     @CreatedDate
     private Instant createdDate = Instant.now();
     private String yearPublished;

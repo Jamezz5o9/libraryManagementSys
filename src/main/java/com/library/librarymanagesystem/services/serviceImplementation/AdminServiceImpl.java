@@ -3,14 +3,9 @@ package com.library.librarymanagesystem.services.serviceImplementation;
 import com.library.librarymanagesystem.data.models.Admin;
 import com.library.librarymanagesystem.data.models.Book;
 import com.library.librarymanagesystem.data.repository.AdminRepository;
-import com.library.librarymanagesystem.dtos.request.AddBookRequest;
-import com.library.librarymanagesystem.dtos.request.AdminCreateRequest;
-import com.library.librarymanagesystem.dtos.request.LoginRequest;
-import com.library.librarymanagesystem.dtos.request.UpdateAdminRequest;
-import com.library.librarymanagesystem.dtos.response.AddBookResponse;
-import com.library.librarymanagesystem.dtos.response.AdminCreateResponse;
-import com.library.librarymanagesystem.dtos.response.LoginResponse;
-import com.library.librarymanagesystem.dtos.response.UpdateAdminResponse;
+import com.library.librarymanagesystem.data.repository.BookRequestRepository;
+import com.library.librarymanagesystem.dtos.request.*;
+import com.library.librarymanagesystem.dtos.response.*;
 import com.library.librarymanagesystem.exception.AdminException;
 import com.library.librarymanagesystem.exception.AuthorException;
 import com.library.librarymanagesystem.exception.LoginDetailsException;
@@ -31,6 +26,9 @@ public class AdminServiceImpl implements AdminService {
     private AdminRepository adminRepository;
     @Autowired
     private ModelMapper mapper;
+
+    @Autowired
+    private BookService bookService;
 
     @Override
     public AdminCreateResponse createAdmin(AdminCreateRequest adminCreateRequest) {
@@ -70,8 +68,13 @@ public class AdminServiceImpl implements AdminService {
 
     @Override
     public AddBookResponse addBook(AddBookRequest addBookRequest) {
-
-
+        BookCreateRequest bookCreateRequest = new BookCreateRequest();
+        bookCreateRequest.setYearPublished(addBookRequest.getBook().getYearPublished());
+        bookCreateRequest.setBookTitle(addBookRequest.getBook().getTitle());
+        bookCreateRequest.setIsbn(addBookRequest.getBook().getIsbn());
+        bookCreateRequest.setAuthorId(addBookRequest.getAuthorId());
+        BookCreateResponse createdBook = bookService.createBook(bookCreateRequest);
+        return mapper.map(createdBook, AddBookResponse.class);
     }
 
     @Override

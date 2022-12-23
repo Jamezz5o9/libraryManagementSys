@@ -31,10 +31,15 @@ public class AdminController {
         return new ResponseEntity<>(adminService.adminLogin(loginRequest), HttpStatus.OK);
 
     }
+    @PostMapping("/addBook")
+    public ResponseEntity<AddBookResponse> addBook(@RequestBody AddBookRequest addBookRequest){
+        return new ResponseEntity<>(adminService.addBook(addBookRequest), HttpStatus.OK);
+    }
     @PutMapping("/updateAdmin")
     public ResponseEntity<UpdateAdminResponse> updateAdmin(@RequestBody UpdateAdminRequest updateAdminRequest){
         return new ResponseEntity<>(adminService.updateAdmin(updateAdminRequest), HttpStatus.OK);
     }
+
 
     @PutMapping("/updateAdminByEmail")
     public ResponseEntity<UpdateAdminResponse> updatedAdminByEmail(@RequestBody UpdateAdminRequest updateAdminRequest){

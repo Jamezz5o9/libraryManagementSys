@@ -32,7 +32,7 @@ public class BookServiceImpl implements BookService {
         Book book = new Book();
         book.setIsbn(bookCreateRequest.getIsbn());
         book.getBookAuthor().add(author);
-        book.setBookTitle(bookCreateRequest.getBookTitle());
+        book.setTitle(bookCreateRequest.getBookTitle());
         book.setAvailableQuantity(bookCreateRequest.getIsbn());
         book.setYearPublished(bookCreateRequest.getYearPublished());
         Book savedBook = bookRepository.save(book);
@@ -61,8 +61,8 @@ public class BookServiceImpl implements BookService {
 
     }
     @Override
-    public Book viewBookByName(String name) {
-        return bookRepository.findBookByName(name).orElseThrow(() -> new BookException("Book with "+ name + " doesn't exist"));
+    public Book viewBookByTitle(String name) {
+        return bookRepository.findBookByTitle(name).orElseThrow(() -> new BookException("Book with "+ name + " doesn't exist"));
     }
 
     @Override

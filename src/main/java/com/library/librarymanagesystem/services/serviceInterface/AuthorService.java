@@ -2,6 +2,7 @@ package com.library.librarymanagesystem.services.serviceInterface;
 
 import com.library.librarymanagesystem.data.models.Author;
 import com.library.librarymanagesystem.dtos.request.AuthorCreateRequest;
+import com.library.librarymanagesystem.dtos.request.AuthorUpdateRequest;
 import com.library.librarymanagesystem.dtos.response.AuthorCreateResponse;
 
 import java.util.List;
@@ -14,4 +15,6 @@ public interface AuthorService {
     String deleteAuthorById(Long id);
     String deleteAuthorByEmail(String email);
     List<Author> getAllAuthor();
+
+    String updateAuthor(AuthorUpdateRequest authorUpdateRequest);
 }

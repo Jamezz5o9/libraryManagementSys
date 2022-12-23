@@ -2,6 +2,7 @@ package com.library.librarymanagesystem.services.serviceImplementation;
 
 import com.library.librarymanagesystem.data.repository.AdminRepository;
 import com.library.librarymanagesystem.dtos.request.AuthorCreateRequest;
+import com.library.librarymanagesystem.dtos.request.AuthorUpdateRequest;
 import com.library.librarymanagesystem.dtos.response.AuthorCreateResponse;
 import com.library.librarymanagesystem.data.models.Author;
 import com.library.librarymanagesystem.data.repository.AuthorRepository;
@@ -70,6 +71,16 @@ public class AuthorServiceImpl implements AuthorService {
     @Override
     public List<Author> getAllAuthor() {
         return authorRepository.findAll();
+    }
+
+    @Override
+    public String updateAuthor(AuthorUpdateRequest authorUpdateRequest) {
+        if(authorRepository.findAuthorByEmail(authorUpdateRequest.getEmail()).isEmpty()) throw new AuthorException("Author can't be empty");
+        Author author = getAuthorByEmail(authorUpdateRequest.getEmail());
+        if(authorUpdateRequest.getPhoneNumber() != null) author.setPhoneNumber(authorUpdateRequest.getPhoneNumber());
+        if(authorUpdateRequest.getFirstName() != null) author.setFirstName(authorUpdateRequest.getFirstName());
+        if(authorUpdateRequest.getLastName() != null) author.setLastName(authorUpdateRequest.getLastName());
+        return "Author name " + authorUpdateRequest.getFirstName() + "\nauthor phoneNumber " + authorUpdateRequest.getPhoneNumber() + "\nauthor lastName " + authorUpdateRequest.getLastName() + "\n Updated successfully";
     }
 
 }
