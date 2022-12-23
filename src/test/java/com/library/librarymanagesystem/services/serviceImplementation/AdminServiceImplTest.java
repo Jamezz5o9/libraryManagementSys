@@ -104,6 +104,15 @@ public class AdminServiceImplTest {
         assertEquals("folake@gmail.com", admin.getEmail());
     }
 
+    @Test
+    void bookCanIncreaseWhenAddedIntoDbByAdmin(){
+        Book book = new Book();
+        book.setBookId(1L);
+//        book.setBookAuthor("Agunyi Ironsi");
+        book.setIsbn(123675L);
+//        adminService.addBook(book);
+    }
+
 
 
 }

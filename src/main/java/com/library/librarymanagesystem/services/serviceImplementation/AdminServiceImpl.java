@@ -1,10 +1,13 @@
 package com.library.librarymanagesystem.services.serviceImplementation;
 
 import com.library.librarymanagesystem.data.models.Admin;
+import com.library.librarymanagesystem.data.models.Book;
 import com.library.librarymanagesystem.data.repository.AdminRepository;
+import com.library.librarymanagesystem.dtos.request.AddBookRequest;
 import com.library.librarymanagesystem.dtos.request.AdminCreateRequest;
 import com.library.librarymanagesystem.dtos.request.LoginRequest;
 import com.library.librarymanagesystem.dtos.request.UpdateAdminRequest;
+import com.library.librarymanagesystem.dtos.response.AddBookResponse;
 import com.library.librarymanagesystem.dtos.response.AdminCreateResponse;
 import com.library.librarymanagesystem.dtos.response.LoginResponse;
 import com.library.librarymanagesystem.dtos.response.UpdateAdminResponse;
@@ -12,6 +15,7 @@ import com.library.librarymanagesystem.exception.AdminException;
 import com.library.librarymanagesystem.exception.AuthorException;
 import com.library.librarymanagesystem.exception.LoginDetailsException;
 import com.library.librarymanagesystem.services.serviceInterface.AdminService;
+import com.library.librarymanagesystem.services.serviceInterface.BookService;
 import jakarta.transaction.Transactional;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -62,6 +66,12 @@ public class AdminServiceImpl implements AdminService {
         if (updateAdminRequest.getLastName() != null) foundAdmin.setLastName(updateAdminRequest.getLastName());
         Admin savedAdmin = adminRepository.save(foundAdmin);
         return mapper.map(savedAdmin, UpdateAdminResponse.class);
+    }
+
+    @Override
+    public AddBookResponse addBook(AddBookRequest addBookRequest) {
+
+
     }
 
     @Override

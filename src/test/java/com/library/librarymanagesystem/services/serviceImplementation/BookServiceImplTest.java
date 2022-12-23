@@ -3,7 +3,6 @@ package com.library.librarymanagesystem.services.serviceImplementation;
 import com.library.librarymanagesystem.LibrarymanagesystemApplication;
 import com.library.librarymanagesystem.dtos.request.BookCreateRequest;
 import com.library.librarymanagesystem.dtos.response.BookCreateResponse;
-import com.library.librarymanagesystem.data.repository.BookRepository;
 import com.library.librarymanagesystem.services.serviceInterface.BookService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -27,7 +26,7 @@ class BookServiceImplTest {
      bookCreateRequest.setIsbn(200L);
      bookCreateRequest.setBookTitle("Lionel Andres Messi");
      bookCreateRequest.setYearPublished("2022");
-     BookCreateResponse bookCreateResponse = bookService.saveBook(bookCreateRequest);
+     BookCreateResponse bookCreateResponse = bookService.createBook(bookCreateRequest);
      bookCreateResponse.setStatus("success");
      assertEquals("success", bookCreateResponse.getStatus());
     }

@@ -7,11 +7,13 @@ import java.util.List;
 
 public interface BookService {
 
-    BookCreateResponse saveBook(BookCreateRequest bookCreateRequest);
-    DeletedBookResponse deleteBookById(Long id);
-    List<Book> getBookByAuthor(BookAuthorRequest bookAuthorRequestRequest);
-    String deleteAll();
-    BookResponse getBookById(Long id);
-    BookResponse getBookByName(String name);
-    List<Book> getAllBooks();
+    BookCreateResponse createBook(BookCreateRequest bookCreateRequest);
+    String deleteBookById(Long id);
+    List<Book> viewBookByAuthor(BookAuthorRequest bookAuthorRequestRequest);
+    String deleteAllBooks();
+    Book viewBookById(Long id);
+    Book viewBookByName(String name);
+    List<Book> viewAllBooks();
+    String deleteBookByIsbn(Long isbn);
+    Book viewBookByIsbn(Long isbn);
 }
